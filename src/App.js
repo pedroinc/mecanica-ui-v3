@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import AppRouter from "./router";
+import { fetchCustomers, logout } from "./services";
+import CssBaseline from "@mui/material/CssBaseline";
+import { Button } from "@mui/material";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+async function listCustomers() {
+  const customers = await fetchCustomers();
+  console.log(customers);
 }
+
+function handleLogout() {
+  logout();
+}
+
+const App = () => {
+  useEffect(() => {
+    listCustomers();
+  }, []);
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <div className="App">
+        <header className="App-header">
+          <h3>App header</h3>
+          <Button variant="text" onClick={handleLogout}>
+            sair
+          </Button>
+        </header>
+        <body>
+          <div className="wrapper">
+            <AppRouter />
+          </div>
+        </body>
+      </div>
+    </React.Fragment>
+  );
+};
 
 export default App;
