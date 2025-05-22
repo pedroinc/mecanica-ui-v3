@@ -1,4 +1,4 @@
-const baseURL = process.env.REACT_APP_BASE_URL;
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 console.log("baseURL", baseURL);
 
@@ -17,6 +17,7 @@ export const fetchCustomers = async () => {
     const response = await fetch(`${baseURL}/customers`, {
       method: Methods.GET,
       headers: defaultHeaders,
+      credentials: "include",
     });
     return response.json();
   } catch (error) {
@@ -25,8 +26,9 @@ export const fetchCustomers = async () => {
 };
 
 export const loginRequest = (email, password) => {
-  fetch(`${baseURL}/users/login`, {
+  fetch(`${baseURL}/auth/login`, {
     method: Methods.POST,
+    credentials: "include",
     body: JSON.stringify({
       email,
       password,

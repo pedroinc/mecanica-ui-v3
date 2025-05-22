@@ -1,26 +1,23 @@
-#root {
-  max-width: 1280px;
-  margin: 0;
-  /* padding: 2rem; */
-  /* text-align: center; */
-}
-
 * {
     margin: 0;
     padding: 0;
 }
 
-.base-box {
+.bg-login {
+    background-color: lightgreen;
+}
+
+.login-box {
     display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
     align-items: center;
-    justify-content: baseline;
+    justify-content: center;
     background-color: lightblue;
 }
 
-.base-container {
+.login-container {
     /* min-width: 480px; */
     display: flex;
     flex-direction: column;
@@ -29,12 +26,14 @@
     /* background-color: #eeeeee; */
 }
 
-/* .base-container form {
+.login-container form {
     max-width: 480px;
     min-width: 320px;
 }
 
-.base-container form div {
+.login-container form div {
     margin-bottom: 2px;
     width: 100%;
-} */
+    /* min-width: 480px; */
+    /* max-width: 480px; */
+}
