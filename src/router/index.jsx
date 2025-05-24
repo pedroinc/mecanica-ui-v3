@@ -4,7 +4,8 @@ import { BrowserRouter, Route, Routes } from "react-router";
 
 import Login from "../pages/Login";
 import Home from "../pages/Home";
-import Customers from "../pages/Customers";
+import CustomersList from "../pages/Customers";
+import BaseLayout from "../layouts/BaseLayout";
 
 function Private({ Item }) {
   const signed = false;
@@ -18,11 +19,16 @@ const AppRouter = () => {
       <>
         <Routes>
           {/* <Route exact path="/clientes" element={Private Item={}} /> */}
-          <Route exact path="/clientes" element={<Customers />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
+
+          {/* Wrap routes with layout */}
+          <Route path="/" element={<BaseLayout />}>
+            <Route index path="/" element={<Home />} />
+            <Route exact path="/clientes" element={<CustomersList />} />
+          </Route>
+
           {/* <Route exact path="/registrar" element={<Register />} /> */}
-          <Route path="*" element={<Login />} />
+          {/* <Route path="*" element={<Login />} /> */}
         </Routes>
       </>
     </BrowserRouter>

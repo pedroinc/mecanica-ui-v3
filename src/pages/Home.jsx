@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchCustomers } from '../services'
-import { AppBar, Box, Button, Container, IconButton, Toolbar, Typography } from "@mui/material";
-// import { MenuIcon } from "@mui/icons-material";
-import MenuIcon from '@mui/icons-material/Menu';
+import { Box, Container } from "@mui/material";
 
 async function listCustomers() {
   const customers = await fetchCustomers();
@@ -17,29 +15,6 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <Box className="base-box">
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Mecânica
-            </Typography>
-            {/* <Button color="inherit">Login</Button> */}
-          </Toolbar>
-        </AppBar>
-        <Container className="base-container">
-          <Box sx={{ fontSize: 'h5.fontSize', margin: "16px 0" }}>Homepage</Box>
-        </Container>
-      </Box>
-    </>
+    <Box sx={{ fontSize: 'h5.fontSize', margin: "16px 0" }}>Homepage</Box>
   );
 }

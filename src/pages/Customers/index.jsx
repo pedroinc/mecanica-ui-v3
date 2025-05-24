@@ -2,11 +2,15 @@ import { useState, useEffect } from "react";
 
 import { AppBar, Box, Container, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Toolbar, Typography } from "@mui/material";
 
+
 import MenuIcon from '@mui/icons-material/Menu';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import SearchIcon from '@mui/icons-material/Search';
 
 import { fetchCustomers } from "../../services";
 
-export default function Customers() {
+export default function CustomersList() {
 
     const [customers, setCustomers] = useState([]);
 
@@ -22,27 +26,11 @@ export default function Customers() {
 
     return (
         <>
-            <Box className="base-box">
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ mr: 2 }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            Mecânica
-                        </Typography>
-                        {/* <Button color="inherit">Login</Button> */}
-                    </Toolbar>
-                </AppBar>
 
-                <Container className="base-container">
-                    <Box sx={{ fontSize: 'h5.fontSize', margin: "16px 0" }}>Clientes</Box>
+                    <Box
+                        sx={{ fontSize: 'h5.fontSize', margin: "16px 0" }}>
+                        <div>Clientes</div>
+                    </Box>
 
                     <TableContainer component={Paper}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -50,8 +38,8 @@ export default function Customers() {
                                 <TableRow>
                                     <TableCell>Nome</TableCell>
                                     <TableCell align="right">Telefone</TableCell>
-                                    <TableCell align="right">E-mail</TableCell>
                                     <TableCell align="right">Data inclusão</TableCell>
+                                    <TableCell align="right"></TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
@@ -64,8 +52,19 @@ export default function Customers() {
                                             {row.name}
                                         </TableCell>
                                         <TableCell align="right">{row.phone}</TableCell>
-                                        <TableCell align="right">{row.email}</TableCell>
                                         <TableCell align="right">{row.createdAt}</TableCell>
+                                        <TableCell align="right">
+                                            <IconButton aria-label="" size="small">
+                                                <SearchIcon />
+                                            </IconButton>                                            
+                                            <IconButton aria-label="" size="small">
+                                                <EditIcon />
+                                                {/* <UpdateIcon /> */}
+                                            </IconButton>
+                                            <IconButton aria-label="" size="small">
+                                                <DeleteIcon />
+                                            </IconButton>
+                                        </TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>
@@ -90,8 +89,6 @@ export default function Customers() {
                             }
                         </tbody>
                     </table> */}
-                </Container>
-            </Box>
         </>
     );
 }

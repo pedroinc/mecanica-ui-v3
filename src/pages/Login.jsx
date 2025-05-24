@@ -31,7 +31,7 @@ export default function Login() {
       <Box className="login-box">
         <Container className="login-container">
           {/* <h3>Login Page</h3> */}
-          <Box sx={{ fontSize: 'h5.fontSize', margin: "16px 0" }}>Mecânica Cabrini</Box>
+          <Box sx={{ fontSize: 'h5.fontSize', margin: "16px 0" }}>Mecânica</Box>
           <form>
             <div>
               <TextField
