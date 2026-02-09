@@ -37,20 +37,23 @@ const BaseLayout = () => {
                 <Container className="base-container">
                     <main>
                         <Outlet /> {/* This is where nested routes will be rendered */}
+                        {/* <Outlet context={myContextValue} /> This is where nested routes will be rendered */}
                     </main>
                 </Container>
+
+                <Drawer open={open} anchor="bottom" onClose={toggleDrawer(false)}>
+                    <Container sx={{ display: "flex", flexDirection: "column", width: "100%", height: "100hv" }}>
+                        <div>item 1</div>
+                        <div>item 1</div>
+                        <div>item 1</div>
+                        <div>item 1</div>
+                        <div>item 1</div>
+                    </Container>
+                </Drawer>
             </Box>
 
-            <Button onClick={toggleDrawer(true)}>Open drawer</Button>
-            <Drawer open={open} onClose={toggleDrawer(false)}>
-                <Container sx={ { display: "flex", flexDirection: "column", width: "auto" } }>
-                    <div>item 1</div>
-                    <div>item 1</div>
-                    <div>item 1</div>
-                    <div>item 1</div>
-                    <div>item 1</div>                    
-                </Container>
-            </Drawer>
+            {/* <Button onClick={toggleDrawer(true)}>Open drawer</Button> */}
+
 
             {/* <footer className="bg-gray-200 text-center p-4">
                 My App Footer

@@ -27,7 +27,6 @@ export default function Login() {
   };
 
   return (
-    <>
       <Box className="login-box">
         <Container className="login-container">
           {/* <h3>Login Page</h3> */}
@@ -36,6 +35,7 @@ export default function Login() {
             <div>
               <TextField
                 label="email"
+                autoFocus
                 type="text"
                 name="email"
                 id="email"
@@ -65,6 +65,5 @@ export default function Login() {
           </form>
         </Container>
       </Box>
-    </>
   );
 }

@@ -16,7 +16,6 @@ function Private({ Item }) {
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      <>
         <Routes>
           {/* <Route exact path="/clientes" element={Private Item={}} /> */}
           <Route path="/login" element={<Login />} />
@@ -30,7 +29,6 @@ const AppRouter = () => {
           {/* <Route exact path="/registrar" element={<Register />} /> */}
           {/* <Route path="*" element={<Login />} /> */}
         </Routes>
-      </>
     </BrowserRouter>
   );
 };
