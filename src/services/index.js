@@ -13,20 +13,16 @@ const defaultHeaders = {
 };
 
 export const fetchCustomers = async () => {
-
-  const items = [{ name: 'Pedro' }, { name: 'Ana' }];
-  return Promise.resolve(items);
-  
-  // try {
-  //   const response = await fetch(`${baseURL}/customers`, {
-  //     method: Methods.GET,
-  //     headers: defaultHeaders,
-  //     credentials: "include",
-  //   });
-  //   return response.json();
-  // } catch (error) {
-  //   console.error(error);
-  // }
+  try {
+    const response = await fetch(`${baseURL}/customers`, {
+      method: Methods.GET,
+      headers: defaultHeaders,
+      credentials: "include",
+    });
+    return response.json();
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 export const loginRequest = (email, password) => {
@@ -41,7 +37,7 @@ export const loginRequest = (email, password) => {
   })
     .then(async (res) => {
       if(res.status !== 200) {
-        throw Error('User and/or password invalid!')
+        throw new Error('User and/or password invalid!')
       }
       const { token } = await res.json();
       console.log("loggedin success", token);
