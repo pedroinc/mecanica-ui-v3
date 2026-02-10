@@ -13,16 +13,20 @@ const defaultHeaders = {
 };
 
 export const fetchCustomers = async () => {
-  try {
-    const response = await fetch(`${baseURL}/customers`, {
-      method: Methods.GET,
-      headers: defaultHeaders,
-      credentials: "include",
-    });
-    return response.json();
-  } catch (error) {
-    console.error(error);
-  }
+
+  const items = [{ name: 'Pedro' }, { name: 'Ana' }];
+  return Promise.resolve(items);
+  
+  // try {
+  //   const response = await fetch(`${baseURL}/customers`, {
+  //     method: Methods.GET,
+  //     headers: defaultHeaders,
+  //     credentials: "include",
+  //   });
+  //   return response.json();
+  // } catch (error) {
+  //   console.error(error);
+  // }
 };
 
 export const loginRequest = (email, password) => {
