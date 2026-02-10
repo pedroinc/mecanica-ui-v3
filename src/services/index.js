@@ -37,7 +37,7 @@ export const loginRequest = (email, password) => {
   })
     .then(async (res) => {
       if(res.status !== 200) {
-        throw Error('User and/or password invalid!')
+        throw new Error('User and/or password invalid!')
       }
       const { token } = await res.json();
       console.log("loggedin success", token);
