@@ -37,5 +37,5 @@ jobs:
 
       - name: Deploy build to Lightsail
         run: |
-          rsync -av --delete build/ \
+          rsync -av --delete dist/ \
             ${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}:/opt/bitnami/projects/mecanica-ui/
