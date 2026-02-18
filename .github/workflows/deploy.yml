@@ -17,11 +17,9 @@ jobs:
           node-version: 24
 
       - name: Install dependencies
-        working-directory: mecanica-ui-v3
         run: npm ci
 
       - name: Build React app
-        working-directory: mecanica-ui-v3
         run: npm run build
 
       - name: Setup SSH
@@ -33,5 +31,5 @@ jobs:
 
       - name: Deploy build to Lightsail
         run: |
-          rsync -av --delete mecanica-ui/build/ \
+          rsync -av --delete build/ \
             ${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }}:/opt/bitnami/projects/mecanica-ui/
