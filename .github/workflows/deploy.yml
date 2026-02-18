@@ -21,6 +21,9 @@ jobs:
 
       - name: Build React app
         run: npm run build
+      
+      - name: Debug host
+        run: echo "Host is ${{ secrets.LIGHTSAIL_HOST }}"
 
       - name: Setup SSH
         run: |
@@ -28,6 +31,7 @@ jobs:
           echo "${{ secrets.LIGHTSAIL_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.LIGHTSAIL_HOST }} >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
 
       - name: Deploy build to Lightsail
         run: |
