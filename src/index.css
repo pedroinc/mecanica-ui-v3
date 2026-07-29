@@ -1,68 +1,43 @@
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  /* Primary brand color — from the digitized business card (#F7921C) */
+  --color-primary-50: #fffaf4;
+  --color-primary-100: #fef2e4;
+  --color-primary-200: #fde0bf;
+  --color-primary-300: #fbcd97;
+  --color-primary-400: #f9b15c;
+  --color-primary-500: #f7921c;
+  --color-primary-600: #d98019;
+  --color-primary-700: #b26914;
+  --color-primary-800: #8a5210;
+  --color-primary-900: #633a0b;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  /* Neutral text/border/surface color — tinted from the card's navy (#071625) */
+  --color-neutral-50: #f8f8f8;
+  --color-neutral-100: #eeeff0;
+  --color-neutral-200: #dadcde;
+  --color-neutral-300: #babec2;
+  --color-neutral-400: #8f969d;
+  --color-neutral-500: #6a737c;
+  --color-neutral-600: #4c5762;
+  --color-neutral-700: #2f3b48;
+  --color-neutral-800: #162432;
+  --color-neutral-900: #071625;
+
+  /* Error/danger feedback color — from the card's red (#ED1B24) */
+  --color-danger-100: #fde8e9;
+  --color-danger-600: #ed1b24;
+  --color-danger-700: #c9171f;
+
+  /* Accent color — from the card's yellow (#FFD403), for badges/highlights */
+  --color-accent-400: #ffda29;
+  --color-accent-500: #ffd403;
+  --color-accent-600: #e6bf03;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: var(--font-sans);
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
