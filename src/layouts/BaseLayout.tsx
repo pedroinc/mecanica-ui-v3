@@ -1,7 +1,9 @@
 // src/layouts/BaseLayout.tsx
 import { useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import Drawer from '../components/Drawer';
+import { LogoutIcon } from '../components/icons';
+import { logout } from '../services';
 
 const MenuIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -14,6 +16,12 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
 
 const BaseLayout = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
 
   return (
     <div className="flex flex-col w-screen h-screen items-center bg-primary-200">
@@ -27,7 +35,15 @@ const BaseLayout = () => {
           >
             <MenuIcon />
           </button>
-          <span className="text-lg">Mecânica Cabrini</span>
+          <span className="text-lg flex-1">Mecânica Cabrini</span>
+          <button
+            type="button"
+            aria-label="sair"
+            className="p-2 rounded-full hover:bg-white/10"
+            onClick={handleLogout}
+          >
+            <LogoutIcon />
+          </button>
         </div>
       </header>
 
